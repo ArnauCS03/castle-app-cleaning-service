@@ -1,4 +1,3 @@
-/* src/Header.css */
 .header {
     position: fixed;
     top: 0;
@@ -6,12 +5,12 @@
     padding: 10px;
     font-size: 24px;
     font-weight: bold;
-    background-color: white; /* Ensures the text is readable */
+    background-color: white; 
     z-index: 1000; /* Ensures the header stays on top */
   }
   
 
   .header-logo {
-    height: 100px; /* Adjust size as needed */
-    width: auto;  /* Maintain aspect ratio */
+    height: 100px; 
+    width: auto;  
   }
