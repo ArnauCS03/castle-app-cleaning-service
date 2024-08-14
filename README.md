@@ -1,5 +1,8 @@
 # CASTLE - Cleaning Service App
 
+![Screenshot from 2024-08-14 20-08-49](https://github.com/user-attachments/assets/f84ee949-e222-47f5-9aa1-34762f65d992)
+
+
 **CASTLE** is a Progressive Web App (PWA) designed for managing cleaning services. Users can log in, post photos, complete checklists, and supervisors can monitor tasks, track time, and provide notifications.
 
 ### Features
