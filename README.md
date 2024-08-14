@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# CASTLE - Cleaning Service App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**CASTLE** is a Progressive Web App (PWA) designed for managing cleaning services. Users can log in, post photos, complete checklists, and supervisors can monitor tasks, track time, and provide notifications.
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+- Progressive Web App (PWA): Installable on mobile devices, works offline, and provides a native app-like experience.
+- User Authentication: Secure login functionality.
+- Task Management: Users can upload photos and complete checklists related to cleaning services.
+- Supervisory Tools: Supervisors can track hours, monitor tasks, and send notifications.
 
-### `npm start`
+## Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Check out the live version of the app here: [CASTLE](https://castle-servicios.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
+### Prerequisites
 
-### `npm test`
+- `Node.js` and `npm` installed on your machine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Local Setup
 
-### `npm run build`
+Clone the Repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Install Dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+``` 
+npm install
+```
 
-### `npm run eject`
+### Run the Development Server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app will be available at http://localhost:3000 by default.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Build for Production:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+npm run build
+```
 
-## Learn More
+This will create an optimized production build in the build directory.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deploying to Vercel
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Push Your Code to GitHub:
+    Ensure your latest code is committed and pushed to GitHub.
 
-### Code Splitting
+2. Deploy with Vercel:
+    - Go to Vercel and create a new project.
+    - Link your GitHub repository.
+    - Set the Build Command to npm run build.
+    - Set the Output Directory to build.
+    - Deploy your project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## PWA Features
 
-### Analyzing the Bundle Size
+- Manifest Configuration: The app includes a manifest.json file that defines the app name, icons, start URL, display mode, and theme colors.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Service Worker: The app is configured with a service worker to enable offline functionality and caching.
