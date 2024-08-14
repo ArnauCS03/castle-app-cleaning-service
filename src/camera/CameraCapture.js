@@ -7,6 +7,7 @@ const CameraCapture = ({ onCapture }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
+  // Start the camera
   const startCamera = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -18,6 +19,7 @@ const CameraCapture = ({ onCapture }) => {
     }
   };
 
+  // Capture photo from the camera feed
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
@@ -28,6 +30,7 @@ const CameraCapture = ({ onCapture }) => {
     stopCamera();
   };
 
+  // Stop the camera
   const stopCamera = () => {
     if (cameraStream) {
       const tracks = cameraStream.getTracks();
@@ -36,21 +39,27 @@ const CameraCapture = ({ onCapture }) => {
     }
   };
 
+  // Confirm photo and pass it to the parent
   const handleConfirm = () => {
     onCapture(photo);
     setPhoto(null);
     stopCamera();
   };
 
+  // Reshoot: restart camera and clear photo
   const handleReshoot = () => {
     setPhoto(null);
     startCamera();
   };
 
+  // Start the camera when component mounts
+  React.useEffect(() => {
+    startCamera();
+    return () => stopCamera(); // Cleanup camera on component unmount
+  }, []);
+
   return (
     <div className="camera-capture">
-      <video ref={videoRef} autoPlay></video>
-      <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
       {photo ? (
         <div className="photo-preview">
           <img src={photo} alt="Captured" />
@@ -59,7 +68,8 @@ const CameraCapture = ({ onCapture }) => {
         </div>
       ) : (
         <div className="controls">
-          <button onClick={startCamera}>Start Camera</button>
+          <video ref={videoRef} autoPlay></video>
+          <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
           <button onClick={capturePhoto}>Capture Photo</button>
         </div>
       )}

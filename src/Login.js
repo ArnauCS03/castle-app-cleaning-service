@@ -23,7 +23,7 @@ const Login = ({ onLogin }) => {
         <div className="input-group">
           <i className="fas fa-user input-icon"></i>
           <input
-            type="email"
+            type="text"
             placeholder="Usuario"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
