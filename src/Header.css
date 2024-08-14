@@ -10,3 +10,8 @@
     z-index: 1000; /* Ensures the header stays on top */
   }
   
+
+  .header-logo {
+    height: 100px; /* Adjust size as needed */
+    width: auto;  /* Maintain aspect ratio */
+  }

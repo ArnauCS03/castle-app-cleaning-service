@@ -1,11 +1,16 @@
 // src/Header.js
 import React from 'react';
 import './Header.css';
+import logo from './images/name.png';
 
 function Header() {
   return (
     <div className="header">
-      <h1>CASTLE</h1>
+      
+      <img src={logo} alt="Logo" className="header-logo" />
+
+      {/* <h1>CASTLE</h1> */}
+    
     </div>
   );
 }
