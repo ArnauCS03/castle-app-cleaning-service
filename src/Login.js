@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from './firebase'; 
 import './Login.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // Redirect or update UI on successful login
-    } catch (err) {
-      setError('Error en el log in. Comprueba tus credenciales.');
-    }
+    // Directly call onLogin to transition to the main app
+    onLogin();
   };
 
   const togglePasswordVisibility = () => {
@@ -50,7 +43,6 @@ const Login = () => {
           ></i>
         </div>
         <button type="submit">Entrar</button>
-        {error && <p className="error">{error}</p>}
         <a href="#">¿Olvidaste la contraseña?</a>
       </form>
     </div>

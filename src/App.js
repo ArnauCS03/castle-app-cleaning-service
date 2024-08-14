@@ -1,18 +1,45 @@
-import React from 'react';  
+import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
 import Login from './Login';
+import MainApp from './MainApp'; // Ensure this component exists
+import CameraCapture from './camera/CameraCapture'; // Import CameraCapture
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
+  const [capturedPhoto, setCapturedPhoto] = useState(null);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleCapture = (photo) => {
+    setCapturedPhoto(photo);
+    setShowCamera(false);
+  };
+
   return (
     <div className="App">
       <Header />
       <div className="main-content">
-        <Login />
+        {isAuthenticated ? (
+          showCamera ? (
+            <CameraCapture onCapture={handleCapture} />
+          ) : (
+            <MainApp />  // MainApp content when authenticated
+          )
+        ) : (
+          <Login onLogin={handleLogin} />
+        )}
       </div>
-      {/* Other components or content */}
+      {capturedPhoto && (
+        <div className="captured-photo">
+          <h2>Captured Photo</h2>
+          <img src={capturedPhoto} alt="Captured" />
+        </div>
+      )}
     </div>
-
   );
 }
 
