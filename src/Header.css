@@ -1,0 +1,12 @@
+/* src/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: white; /* Ensures the text is readable */
+    z-index: 1000; /* Ensures the header stays on top */
+  }
+  
