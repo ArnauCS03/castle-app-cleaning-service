@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Login />
+      <div className="main-content">
+        <Login />
+      </div>
       {/* Other components or content */}
     </div>
 

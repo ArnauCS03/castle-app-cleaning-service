@@ -14,14 +14,14 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       // Redirect or update UI on successful login
     } catch (err) {
-      setError('Failed to log in. Please check your credentials.');
+      setError('Error en el log in. Comprueba tus credenciales.');
     }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleLogin}>
-        <h2>Iniciar sesión</h2>
+        <h2>Inicio de sesión</h2>
         <input
           type="email"
           placeholder="Usuario"
