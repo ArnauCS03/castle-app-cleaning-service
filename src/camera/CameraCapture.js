@@ -39,12 +39,12 @@ const CameraCapture = ({ onCapture }) => {
     const context = canvas.getContext('2d');
     const video = videoRef.current;
 
-    // Set canvas size to 200x200 pixels
-    canvas.width = 200;
-    canvas.height = 200;
+    // Set canvas size to match video feed size
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
 
-    // Draw the image scaled to fit 200x200 pixels
-    context.drawImage(video, 0, 0, 200, 200);
+    // Draw the image scaled to fit the canvas size
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     // Set the photo state with the image data URL
     setPhoto(canvas.toDataURL('image/png'));
@@ -108,7 +108,7 @@ const CameraCapture = ({ onCapture }) => {
           <div className="controls">
             <video ref={videoRef} autoPlay></video>
             <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
-            <button onClick={capturePhoto}>Capturar Foto</button>
+            <button onClick={capturePhoto} className="capture-button" >Capturar Foto</button>
           </div>
         )
       )}

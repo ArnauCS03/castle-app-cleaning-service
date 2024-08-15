@@ -1,48 +1,62 @@
-/* CameraCapture.css */
 .camera-capture {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 100vh; /* Full viewport height */
 }
 
-.controls, .photo-preview {
+.controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
 }
 
-.photo-preview img {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+video {
+  width: 100%;
+  height: auto;
+}
+
+.photo-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%; /* Ensure the preview doesn't overflow */
+}
+
+.captured-photo-img {
+  max-width: 100%;
+  max-height: 50vh; /* Limit height to 50% of viewport height */
+  object-fit: contain; /* Preserve aspect ratio */
+  border: none; /* Remove any default border */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
 
 .photo-timestamp {
-  margin: 10px 0;
-  font-size: 14px;
-  color: #555;
+  margin-top: 10px;
 }
 
-button {
+.open-camera-button,
+.confirm-button,
+.reshoot-button {
   margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.open-camera-button {
-  margin-top: 20px;
-}
-
-.confirm-button {
-  background-color: #67ca6a; /* Green */
-  color: white;
 }
 
 .reshoot-button {
-  background-color: #f3655b; /* Red */
+  background-color: #e45d53; /* Red */
   color: white;
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.open-camera-button, .capture-button, .confirm-button {
+  background-color: #2a90fc; /* Blue */
+  color: white;
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  cursor: pointer; /* Show pointer cursor on hover */
 }
