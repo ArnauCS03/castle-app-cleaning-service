@@ -1,0 +1,33 @@
+
+.main-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Ensure padding is included in the height */
+  }
+  
+  .captured-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 20px; /* Adjust to your preference */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .captured-photo-small {
+    width: 200px; /* Set width of the resized photo */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .photo-timestamp {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  

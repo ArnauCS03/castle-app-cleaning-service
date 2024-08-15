@@ -1,48 +1,33 @@
+/* CameraCapture.css */
 .camera-capture {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-}
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-video {
-  width: 100%;
-  height: auto;
 }
 
 .photo-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 100%; /* Ensure the preview doesn't overflow */
+  margin: 20px; /* Space around the photo preview */
 }
 
-.captured-photo-img {
-  max-width: 100%;
-  max-height: 50vh; /* Limit height to 50% of viewport height */
-  object-fit: contain; /* Preserve aspect ratio */
-  border: none; /* Remove any default border */
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+.captured-photo-original {
+  /* Ensure the photo is displayed at its natural size */
+  max-width: none; /* Remove any max-width constraints */
+  max-height: none; /* Remove any max-height constraints */
 }
 
 .photo-timestamp {
   margin-top: 10px;
+  font-size: 16px;
 }
 
-.open-camera-button,
-.confirm-button,
-.reshoot-button {
+button {
   margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .reshoot-button {
