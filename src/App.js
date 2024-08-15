@@ -19,6 +19,10 @@ function App() {
     setShowCamera(false);
   };
 
+  const handleShowCamera = () => {
+    setShowCamera(true);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -27,7 +31,10 @@ function App() {
           showCamera ? (
             <CameraCapture onCapture={handleCapture} />
           ) : (
-            <MainApp />  // MainApp content when authenticated
+            <>
+              <MainApp />
+              
+            </>
           )
         ) : (
           <Login onLogin={handleLogin} />
@@ -36,7 +43,7 @@ function App() {
       {capturedPhoto && (
         <div className="captured-photo">
           <h2>Captured Photo</h2>
-          <img src={capturedPhoto} alt="Captured" />
+          <img src={capturedPhoto} alt="Captured" style={{ width: '200px', height: '200px' }} />
         </div>
       )}
     </div>

@@ -1,32 +1,48 @@
+/* CameraCapture.css */
 .camera-capture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  video {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  
-  .photo-preview img {
-    max-width: 100%;
-    border: 1px solid #ccc;
-  }
-  
-  .controls button,
-  .photo-preview button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.controls, .photo-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.photo-preview img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.photo-timestamp {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.open-camera-button {
+  margin-top: 20px;
+}
+
+.confirm-button {
+  background-color: #67ca6a; /* Green */
+  color: white;
+}
+
+.reshoot-button {
+  background-color: #f3655b; /* Red */
+  color: white;
+}

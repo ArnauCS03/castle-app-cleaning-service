@@ -10,7 +10,7 @@ const MainApp = () => {
 
   return (
     <div className="main-app">
-      <h1>Welcome to the Main App</h1>
+      <h1>Pagina principal</h1>
       <CameraCapture onCapture={handleCapture} />
     </div>
   );
