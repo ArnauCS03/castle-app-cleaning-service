@@ -19,11 +19,6 @@ function App() {
     setShowCamera(false); // Hide camera after capturing
   };
 
-  // Function to show the camera
-  const handleShowCamera = () => {
-    setShowCamera(true);
-  };
-
   return (
     <div className="App">
       <Header />
@@ -43,11 +38,6 @@ function App() {
           <h2>Captured Photo</h2>
           <img src={capturedPhoto} alt="Captured" style={{ width: '200px', height: '200px' }} />
         </div>
-      )}
-      {!showCamera && isAuthenticated && !capturedPhoto && (
-        <button onClick={handleShowCamera} className="show-camera-button">
-          Open Camera
-        </button>
       )}
     </div>
   );

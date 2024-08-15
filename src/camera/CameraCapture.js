@@ -26,7 +26,7 @@ const CameraCapture = ({ onCapture }) => {
     try {
       const constraints = {
         video: {
-          facingMode: 'user', // 'user' for front camera
+          facingMode: 'environment', // 'user' for front camera
         }
       };
 
