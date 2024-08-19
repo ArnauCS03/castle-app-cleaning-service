@@ -5,11 +5,16 @@ import './MainApp.css';
 const MainApp = () => {
   const [capturedPhoto, setCapturedPhoto] = useState(null);
   const [timestamp, setTimestamp] = useState(null);
+  const [showText, setShowText] = useState(true); // State to control the text visibility
 
   const handleCapture = (photo, timestamp) => {
     setCapturedPhoto(photo);
     setTimestamp(timestamp);
     console.log('Captured photo:', photo);
+  };
+
+  const handlePhotoConfirm = () => {
+    setShowText(false); // Hide the text when photo is confirmed
   };
 
   return (
@@ -20,8 +25,8 @@ const MainApp = () => {
           <p className="photo-timestamp">{timestamp}</p>
         </div>
       )}
-      <h1>Pagina principal</h1>
-      <CameraCapture onCapture={handleCapture} />
+      {showText && <h1>Pagina principal</h1>}
+      <CameraCapture onCapture={handleCapture} onConfirm={handlePhotoConfirm} />
     </div>
   );
 };

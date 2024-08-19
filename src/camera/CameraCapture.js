@@ -1,17 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import './CameraCapture.css';
 
-const CameraCapture = ({ onCapture }) => {
+const CameraCapture = ({ onCapture, onConfirm = () => {} }) => { // Default to a no-op function
   const [cameraStream, setCameraStream] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [timestamp, setTimestamp] = useState(null);
   const [showCamera, setShowCamera] = useState(false);
   const [showButtons, setShowButtons] = useState(true);
   const [showPhotoPreview, setShowPhotoPreview] = useState(false);
+  const [isCaptured, setIsCaptured] = useState(false); // New state to check if photo is captured
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Function to format the timestamp
   const formatTimestamp = (date) => {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
@@ -22,13 +24,12 @@ const CameraCapture = ({ onCapture }) => {
     return `${hours}:${minutes}, ${dayOfWeek} ${dayOfMonth} de ${month}`;
   };
 
-  // Start the camera
   const startCamera = async () => {
     try {
       const constraints = {
         video: {
-          facingMode: 'environment', // 'user' for front camera
-        }
+          facingMode: 'environment',
+        },
       };
 
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -40,7 +41,6 @@ const CameraCapture = ({ onCapture }) => {
     }
   };
 
-  // Capture photo from the camera feed
   const capturePhoto = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
@@ -54,56 +54,56 @@ const CameraCapture = ({ onCapture }) => {
     const photoData = canvas.toDataURL('image/png');
     setPhoto(photoData);
     setTimestamp(formatTimestamp(new Date()));
-    setShowPhotoPreview(true); // Show photo preview after capture
+    setShowPhotoPreview(true);
+    setIsCaptured(true); // Mark photo as captured
 
     stopCamera();
   };
 
-  // Stop the camera
   const stopCamera = () => {
     if (cameraStream) {
       const tracks = cameraStream.getTracks();
-      tracks.forEach(track => track.stop());
+      tracks.forEach((track) => track.stop());
       setCameraStream(null);
     }
   };
 
-  // Confirm photo and pass it to the parent
   const handleConfirm = () => {
     onCapture(photo, timestamp);
-    setPhoto(null); // Clear photo
-    setTimestamp(null);
-    setShowPhotoPreview(false); // Hide photo preview
-    setShowCamera(false); // Hide camera controls
-    setShowButtons(false); // Hide buttons
+    onConfirm(); // Notify MainApp that photo has been confirmed
+    setIsCaptured(false); // Reset capture state after confirm
+    setShowButtons(false); // Hide buttons after confirm
+    setShowPhotoPreview(false); // Hide preview after confirm
   };
 
-  // Reshoot: restart camera and clear photo
   const handleReshoot = () => {
     setPhoto(null);
     setTimestamp(null);
     setShowPhotoPreview(false);
+    setIsCaptured(false); // Reset capture state
     startCamera();
     setShowButtons(true);
     setShowCamera(true);
   };
 
-  // Toggle camera visibility
   const handleOpenCamera = () => {
     setShowCamera(true);
     startCamera();
   };
 
-  // Cleanup on component unmount
   useEffect(() => {
     return () => stopCamera();
-  }, [stopCamera]);
+  }, []);
 
   return (
     <div className="camera-capture">
       {showPhotoPreview && photo && (
-        <div className="photo-preview">
-          <img src={photo} alt="Captured" className="captured-photo-original" />
+        <div className="photo-preview" style={{ justifyContent: isCaptured ? 'center' : 'flex-start' }}>
+          <img
+            src={photo}
+            alt="Captured"
+            className="captured-photo-original"
+          />
           {timestamp && <p className="photo-timestamp">{timestamp}</p>}
           {showButtons && (
             <>
@@ -122,7 +122,7 @@ const CameraCapture = ({ onCapture }) => {
       )}
       {!showCamera && !photo && (
         <button onClick={handleOpenCamera} className="open-camera-button">
-          Abrir Cámara
+          <FontAwesomeIcon icon={faCamera} size="lg" /> {}
         </button>
       )}
     </div>

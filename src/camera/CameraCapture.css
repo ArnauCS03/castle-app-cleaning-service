@@ -1,21 +1,35 @@
-/* CameraCapture.css */
 .camera-capture {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  width: 100vw; /* Ensure full width of the viewport */
 }
 
 .photo-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px; /* Space around the photo preview */
+  justify-content: center; /* Center content vertically */
+  position: fixed; /* Fixed position to keep it centered on the screen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centering the container */
+  margin: 0; /* Remove any margin */
+  width: 300px; /* Adjust width automatically based on content */
+  height: auto; /* Adjust height automatically based on content */
+  max-width: 120vw; /* Limit to 90% of viewport width */
+  max-height: 1200vh; /* Limit to 90% of viewport height */
+  background: rgb(255, 255, 255); /* Optional: add a background color to contrast with photo */
+  border: 3px solid #ccc; /* Optional: border around the preview */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(74, 86, 245, 0.2); /* Optional: add shadow for better visibility */
 }
 
 .captured-photo-original {
-  /* Ensure the photo is displayed at its natural size */
-  max-width: none; /* Remove any max-width constraints */
-  max-height: none; /* Remove any max-height constraints */
+  max-width: 100%; /* Ensure the photo does not exceed container width */
+  max-height: 100%; /* Ensure the photo does not exceed container height */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .photo-timestamp {
@@ -30,18 +44,47 @@ button {
   cursor: pointer;
 }
 
-.reshoot-button {
-  background-color: #e45d53; /* Red */
+.capture-button, .confirm-button {
+  background-color: #2a90fc;
   color: white;
-  border: none; /* Remove border */
-  padding: 10px 20px; /* Add padding */
-  cursor: pointer; /* Show pointer cursor on hover */
 }
 
-.open-camera-button, .capture-button, .confirm-button {
-  background-color: #2a90fc; /* Blue */
+.reshoot-button {
+  background-color: #e45d53;
   color: white;
-  border: none; /* Remove border */
-  padding: 10px 20px; /* Add padding */
-  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.open-camera-button {
+  background-color: #2a90fc;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.open-camera-button:hover {
+  background-color: #1f73d4;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
