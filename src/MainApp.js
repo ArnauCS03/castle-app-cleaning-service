@@ -17,11 +17,6 @@ const MainApp = () => {
     setShowText(false); // Hide the text when photo is confirmed
   };
 
-  const handleExit = () => {
-    // Logic to handle exit can be added here
-    console.log('Exit button clicked');
-  };
-
   return (
     <div className="main-app">
       {capturedPhoto && (
@@ -32,7 +27,6 @@ const MainApp = () => {
       )}
       {showText && <h1>Pagina principal</h1>}
       <CameraCapture onCapture={handleCapture} onConfirm={handlePhotoConfirm} />
-      <button className="exit-button" onClick={handleExit}>Exit</button>
     </div>
   );
 };
