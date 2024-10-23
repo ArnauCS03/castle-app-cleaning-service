@@ -68,4 +68,15 @@ This will create an optimized production build in the build directory.
 
 - Manifest Configuration: The app includes a manifest.json file that defines the app name, icons, start URL, display mode, and theme colors.
 
-- Service Worker: The app is configured with a service worker to enable offline functionality and caching.
+- Service Worker: The app is configured with a service worker to enable offline functionality and caching. <br>
+
+---
+
+<br>
+
+### Screenshot
+
+Current initial version of main page:
+
+![Screenshot from 2024-08-19 17-01-50](https://github.com/user-attachments/assets/d381a63b-be3d-43ac-97b9-e7a1a60eac6a)
+
